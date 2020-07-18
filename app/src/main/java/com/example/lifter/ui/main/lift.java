@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -72,15 +73,13 @@ public class lift extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             @Nullable ViewGroup container,
+    public View onCreateView(@NonNull final LayoutInflater inflater,
+                             @Nullable final ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_lift, container, false);
+        final View lift = inflater.inflate(R.layout.fragment_lift, container, false);
 
-        View workout = inflater.inflate(R.layout.workout, container, false);
-
-        Spinner menu = view.findViewById(R.id.spinner1);
+        Spinner menu = lift.findViewById(R.id.spinner1);
 
         String[] items = new String[] {"1", "2", "3"};
 
@@ -89,14 +88,73 @@ public class lift extends Fragment {
 
         menu.setAdapter(adapter);
 
-        TextView text = workout.findViewById(R.id.workout_name);
-        text.setText("OHP");
-        text.setTextColor(Color.BLACK);
+        menu.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                switch (position) {
+                    case 0: {
+                        TextView text = lift.findViewById(R.id.workout_name1);
+                        text.setText("Squat");
 
-        LinearLayout linear = view.findViewById(R.id.linear);
+                        text = lift.findViewById(R.id.workout_name2);
+                        text.setText("Bench Press");
 
-        linear.addView(workout);
+                        text = lift.findViewById(R.id.workout_name3);
+                        text.setText("Lat Raises");
 
-        return view;
+                        text = lift.findViewById(R.id.workout_name4);
+                        text.setText("Bicep Curls");
+
+                        text = lift.findViewById(R.id.workout_name5);
+                        text.setText("Leg Raises");
+                        break;
+                    }
+
+                    case 1: {
+                        TextView text = lift.findViewById(R.id.workout_name1);
+                        text.setText("Deadlift");
+
+                        text = lift.findViewById(R.id.workout_name2);
+                        text.setText("Overhead Press");
+
+                        text = lift.findViewById(R.id.workout_name3);
+                        text.setText("Incline DB Press");
+
+                        text = lift.findViewById(R.id.workout_name4);
+                        text.setText("Shrugs");
+
+                        text = lift.findViewById(R.id.workout_name5);
+                        text.setText("Cable Crunches");
+                        break;
+                    }
+
+                    case 2: {
+                        TextView text = lift.findViewById(R.id.workout_name1);
+                        text.setText("Squat");
+
+                        text = lift.findViewById(R.id.workout_name2);
+                        text.setText("Bench Press");
+
+                        text = lift.findViewById(R.id.workout_name3);
+                        text.setText("Tricep pushdown");
+
+                        text = lift.findViewById(R.id.workout_name4);
+                        text.setText("Lateral Pulldown");
+
+                        text = lift.findViewById(R.id.workout_name5);
+                        text.setText("Plank");
+                        break;
+                    }
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                return;
+
+            }
+        });
+        System.out.println("henlo");
+        return lift;
     }
 }
