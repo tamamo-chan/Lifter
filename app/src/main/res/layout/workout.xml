@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/workout"
+    android:layout_width="401dp"
+    android:layout_height="120dp"
+    android:layout_centerHorizontal="true"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <TextView
+        android:id="@+id/workout_name"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:paddingLeft="10dp"
+        android:text="Deadlift"
+        android:textSize="30sp" />
+
+
+    <EditText
+        android:id="@+id/weight"
+        android:layout_width="190dp"
+        android:layout_height="40dp"
+        android:layout_toRightOf="@id/workout_name"
+        android:text="Insert weight"/>
+
+    <include
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/circles"
+        android:layout_below="@id/workout_name" />
+
+
+</RelativeLayout>

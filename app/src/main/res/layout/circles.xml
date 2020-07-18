@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="120dp"
+    android:layout_centerHorizontal="true"
+    >
+
+    <TextView
+        android:id="@+id/first"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="7dp"
+        android:background="@drawable/box"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="startSnackbar" />
+
+    <TextView
+        android:id="@+id/second"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="7dp"
+        android:layout_toRightOf="@id/first"
+        android:background="@drawable/box"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="startSnackbar" />
+
+    <TextView
+        android:id="@+id/third"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="7dp"
+        android:layout_toRightOf="@id/second"
+        android:background="@drawable/box"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="startSnackbar" />
+
+    <TextView
+        android:id="@+id/fourth"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="7dp"
+        android:layout_toRightOf="@id/third"
+        android:background="@drawable/box"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="startSnackbar" />
+
+    <TextView
+        android:id="@+id/fifth"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="7dp"
+        android:layout_toRightOf="@id/fourth"
+        android:background="@drawable/box"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="startSnackbar" />
+
+    <TextView
+        android:id="@+id/sixth"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="7dp"
+        android:layout_toRightOf="@id/fifth"
+        android:background="@drawable/box"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="startSnackbar" />
+
+    <TextView
+        android:id="@+id/seventh"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="7dp"
+        android:layout_toRightOf="@id/sixth"
+        android:background="@drawable/box"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="startSnackbar" />
+
+
+
+
+</RelativeLayout>
