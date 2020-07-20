@@ -19,6 +19,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -39,10 +40,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("MainActivity","onStart invoked");
         setContentView(R.layout.activity_main);
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
+        viewPager.setOffscreenPageLimit(3);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
     }
@@ -58,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         snack = Snackbar.make(view, String.valueOf(1),Snackbar.LENGTH_INDEFINITE);
         timer = new CountUpTimer(300000) {
             public void onTick(int second) {
-                if (second % 10 == 0) {
+                if (second % 90 == 0 && second != 0) {
                     MediaPlayerWrapper.play(context, R.raw.boxing_bell);
                 }
                 String text = String.format(Locale.getDefault(), "%02d:%s", TimeUnit.SECONDS.toMinutes(second) % 60, (second % 60));
@@ -80,20 +83,21 @@ public class MainActivity extends AppCompatActivity {
         TextView text = (TextView) view;
 
         if (text.getText().toString().equals("")) {
-            text.setText(Integer.toString(7));
+            text.setText(Integer.toString(8));
             text.setTypeface(null, Typeface.BOLD);
             text.setTextSize(32);
             text.setTextColor(Color.BLACK);
         } else {
             int i =  Integer.parseInt(text.getText().toString());
-            i = i-1 % 8;
+            i = i-1 % 9;
 
             if (i < 0) {
-                i += 8;
+                i += 9;
             }
 
             text.setText(Integer.toString(i));
             text.setTypeface(null, Typeface.BOLD);
         }
     };
+
 }

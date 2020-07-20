@@ -7,11 +7,13 @@ import android.graphics.Typeface;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
@@ -24,6 +26,8 @@ import androidx.annotation.Nullable;
 import com.example.lifter.R;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
@@ -65,6 +69,7 @@ public class lift extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("lift","onCreate invoked");
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -76,6 +81,8 @@ public class lift extends Fragment {
     public View onCreateView(@NonNull final LayoutInflater inflater,
                              @Nullable final ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+
+        Log.d("lift","onCreateView invoked");
 
         final View lift = inflater.inflate(R.layout.fragment_lift, container, false);
 
@@ -146,6 +153,15 @@ public class lift extends Fragment {
                         break;
                     }
                 }
+
+                final Button button = lift.findViewById(R.id.button);
+
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        buttonResponse(v);
+                    }
+                });
             }
 
             @Override
@@ -154,7 +170,14 @@ public class lift extends Fragment {
 
             }
         });
-        System.out.println("henlo");
         return lift;
     }
+
+    public void buttonResponse(View view) {
+
+        TextView text = getView().findViewById(R.id.workout_name1);
+        Log.d("buttonResponse", text.getText().toString());
+
+    }
+
 }

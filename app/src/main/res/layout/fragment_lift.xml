@@ -31,12 +31,20 @@
                 android:background="@android:drawable/btn_dropdown"
                 android:spinnerMode="dropdown"/>
 
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:clickable="true"
+                android:paddingLeft="20dp"
+                android:text="Save" />
+
 
         </LinearLayout>
         <RelativeLayout
             android:id="@+id/workout1"
             android:layout_width="401dp"
-            android:layout_height="120dp"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:paddingTop="10dp"
             android:paddingBottom="10dp">
@@ -56,9 +64,10 @@
                 android:layout_width="140dp"
                 android:layout_height="40dp"
                 android:layout_toRightOf="@id/workout_name1"
-                android:text="Insert weight"/>
+                android:hint="Insert weight"/>
 
             <include
+                android:id="@+id/include1"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 layout="@layout/circles"
@@ -70,7 +79,7 @@
         <RelativeLayout
             android:id="@+id/workout2"
             android:layout_width="401dp"
-            android:layout_height="120dp"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:paddingTop="10dp"
             android:paddingBottom="10dp">
@@ -90,9 +99,10 @@
                 android:layout_width="140dp"
                 android:layout_height="40dp"
                 android:layout_toRightOf="@id/workout_name2"
-                android:text="Insert weight"/>
+                android:hint="Insert weight"/>
 
             <include
+                android:id="@+id/include2"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 layout="@layout/circles"
@@ -104,7 +114,7 @@
         <RelativeLayout
             android:id="@+id/workout3"
             android:layout_width="401dp"
-            android:layout_height="120dp"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:paddingTop="10dp"
             android:paddingBottom="10dp">
@@ -124,9 +134,10 @@
                 android:layout_width="140dp"
                 android:layout_height="40dp"
                 android:layout_toRightOf="@id/workout_name3"
-                android:text="Insert weight"/>
+                android:hint="Insert weight"/>
 
             <include
+                android:id="@+id/include3"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 layout="@layout/circles"
@@ -138,7 +149,7 @@
         <RelativeLayout
             android:id="@+id/workout4"
             android:layout_width="401dp"
-            android:layout_height="120dp"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:paddingTop="10dp"
             android:paddingBottom="10dp">
@@ -158,9 +169,10 @@
                 android:layout_width="140dp"
                 android:layout_height="40dp"
                 android:layout_toRightOf="@id/workout_name4"
-                android:text="Insert weight"/>
+                android:hint="Insert weight"/>
 
             <include
+                android:id="@+id/include4"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 layout="@layout/circles"
@@ -172,7 +184,7 @@
         <RelativeLayout
             android:id="@+id/workout5"
             android:layout_width="401dp"
-            android:layout_height="120dp"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:paddingTop="10dp"
             android:paddingBottom="10dp">
@@ -192,9 +204,10 @@
                 android:layout_width="140dp"
                 android:layout_height="40dp"
                 android:layout_toRightOf="@id/workout_name5"
-                android:text="Insert weight"/>
+                android:hint="Insert weight"/>
 
             <include
+                android:id="@+id/include5"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 layout="@layout/circles"

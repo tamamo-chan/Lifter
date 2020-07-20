@@ -4,7 +4,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CalendarView;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.lifter.R;
@@ -24,6 +27,8 @@ public class Schedule extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    CalendarView calender;
+    TextView date_view;
 
     public Schedule() {
         // Required empty public constructor
@@ -50,16 +55,45 @@ public class Schedule extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_schedule, container, false);
+        View schedule = inflater.inflate(R.layout.fragment_schedule, container, false);
+        calender = (CalendarView)
+                schedule.findViewById(R.id.calender);
+        date_view = (TextView)
+                schedule.findViewById(R.id.date_view);
+
+        // Add Listener in calendar
+        calender.setOnDateChangeListener(new CalendarView
+                .OnDateChangeListener() {
+            @Override
+
+            // In this Listener have one method
+            // and in this method we will
+            // get the value of DAYS, MONTH, YEARS
+            public void onSelectedDayChange(
+                    @NonNull CalendarView view,
+                    int year,
+                    int month,
+                    int dayOfMonth) {
+
+                // Store the value of date with
+                // format in String type Variable
+                // Add 1 in month because month
+                // index is start with 0
+                String Date
+                        = dayOfMonth + "-"
+                        + (month + 1) + "-" + year;
+
+                // set this date in TextView for Display
+                date_view.setText(Date);
+            }
+        });
+        return schedule;
     }
 }

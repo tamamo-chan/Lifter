@@ -10,11 +10,14 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.lifter.R;
 
+import java.lang.ref.WeakReference;
+
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
  * one of the sections/tabs/pages.
  */
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
+
 
     @StringRes
     private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2,
@@ -32,15 +35,20 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         // Return a PlaceholderFragment (defined as a static inner class below).
         Fragment fragment = null;
         switch (position) {
-            case 0:
+            case 0: {
                 fragment = new Progress();
                 break;
-            case 1:
+            }
+            case 1: {
                 fragment = new Schedule();
                 break;
-            case 2:
+            }
+            case 2: {
                 fragment = new lift();
                 break;
+            }
+            default:
+                return null;
         }
         return fragment;
     }
