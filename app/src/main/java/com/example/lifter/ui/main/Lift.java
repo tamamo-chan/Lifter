@@ -1,12 +1,10 @@
 package com.example.lifter.ui.main;
 
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.Typeface;
-import android.media.AudioManager;
+import android.content.pm.PackageManager;
 import android.media.SoundPool;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,24 +12,26 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.lifter.R;
-import com.google.android.material.snackbar.Snackbar;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
-import java.util.concurrent.TimeUnit;
 
-public class lift extends Fragment {
+public class Lift extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -44,7 +44,7 @@ public class lift extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public lift() {
+    public Lift() {
         // Required empty public constructor
     }
 
@@ -57,8 +57,8 @@ public class lift extends Fragment {
      * @return A new instance of fragment Frag1.
      */
     // TODO: Rename and change types and number of parameters
-    public static lift newInstance(String param1, String param2) {
-        lift fragment = new lift();
+    public static Lift newInstance(String param1, String param2) {
+        Lift fragment = new Lift();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -175,9 +175,88 @@ public class lift extends Fragment {
 
     public void buttonResponse(View view) {
 
-        TextView text = getView().findViewById(R.id.workout_name1);
-        Log.d("buttonResponse", text.getText().toString());
+        SimpleDateFormat formatter = new SimpleDateFormat(("dd_MM_yyyy"), Locale.ENGLISH);
+        Date now = new Date();
+        String filename = formatter.format(now)+ ".txt";
 
+        File file = new File(Environment.getExternalStorageDirectory() +
+                File.separator + filename);
+
+
+
+        try {
+
+            int permissionCheck = ContextCompat.checkSelfPermission(
+                    getContext(),
+                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
+                if (!file.exists()) {
+                    file.createNewFile();
+                }
+                if (file.exists()) {
+                    OutputStream fo = new FileOutputStream(filename);
+
+
+
+                    RelativeLayout include1 = getView().findViewById(R.id.include1);
+
+                    for (int i = 0; i < include1.getChildCount(); i++) {
+                        TextView text = (TextView) include1.getChildAt(i);
+                        fo.write(text.getText().toString().getBytes());
+                        fo.write("-".getBytes());
+                    }
+
+                    fo.write("\n".getBytes());
+
+                    RelativeLayout include2 = getView().findViewById(R.id.include2);
+
+                    for (int i = 0; i < include2.getChildCount(); i++) {
+                        TextView text = (TextView) include2.getChildAt(i);
+                        fo.write(text.getText().toString().getBytes());
+                        fo.write("-".getBytes());
+                    }
+
+                    fo.write("\n".getBytes());
+
+                    RelativeLayout include3 = getView().findViewById(R.id.include3);
+
+                    for (int i = 0; i < include3.getChildCount(); i++) {
+                        TextView text = (TextView) include3.getChildAt(i);
+                        fo.write(text.getText().toString().getBytes());
+                        fo.write("-".getBytes());
+                    }
+
+                    fo.write("\n".getBytes());
+
+                    RelativeLayout include4 = getView().findViewById(R.id.include4);
+
+                    for (int i = 0; i < include4.getChildCount(); i++) {
+                        TextView text = (TextView) include4.getChildAt(i);
+                        fo.write(text.getText().toString().getBytes());
+                        fo.write("-".getBytes());
+                    }
+
+                    fo.write("\n".getBytes());
+
+                    RelativeLayout include5 = getView().findViewById(R.id.include5);
+
+                    for (int i = 0; i < include5.getChildCount(); i++) {
+                        TextView text = (TextView) include5.getChildAt(i);
+                        fo.write(text.getText().toString().getBytes());
+                        fo.write("-".getBytes());
+                    }
+
+                    fo.write("\n\n".getBytes());
+
+                    fo.close();
+
+                }
+            }
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

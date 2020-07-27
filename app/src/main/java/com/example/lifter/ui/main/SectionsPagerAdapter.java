@@ -10,8 +10,6 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.lifter.R;
 
-import java.lang.ref.WeakReference;
-
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
  * one of the sections/tabs/pages.
@@ -44,7 +42,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 break;
             }
             case 2: {
-                fragment = new lift();
+                fragment = new Lift();
                 break;
             }
             default:
