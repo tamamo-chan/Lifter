@@ -179,10 +179,7 @@ public class Lift extends Fragment {
         Date now = new Date();
         String filename = formatter.format(now)+ ".txt";
 
-        File file = new File(Environment.getExternalStorageDirectory() +
-                File.separator + filename);
-
-
+        File file = new File(getContext().getFilesDir().getPath().toString(), filename);
 
         try {
 
@@ -194,7 +191,7 @@ public class Lift extends Fragment {
                     file.createNewFile();
                 }
                 if (file.exists()) {
-                    OutputStream fo = new FileOutputStream(filename);
+                    OutputStream fo = new FileOutputStream(file);
 
 
 
