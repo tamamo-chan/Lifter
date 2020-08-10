@@ -112,16 +112,16 @@ public class MainActivity extends AppCompatActivity {
         TextView text = (TextView) view;
 
         if (text.getText().toString().equals("")) {
-            text.setText(Integer.toString(8));
+            text.setText(Integer.toString(12));
             text.setTypeface(null, Typeface.BOLD);
             text.setTextSize(32);
             text.setTextColor(Color.BLACK);
         } else {
             int i =  Integer.parseInt(text.getText().toString());
-            i = i-1 % 9;
+            i = i-1 % 13;
 
             if (i < 0) {
-                i += 9;
+                i += 13;
             }
 
             text.setText(Integer.toString(i));

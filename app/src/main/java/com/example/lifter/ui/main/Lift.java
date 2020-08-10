@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -193,7 +194,10 @@ public class Lift extends Fragment {
                 if (file.exists()) {
                     OutputStream fo = new FileOutputStream(file);
 
+                    Spinner spinner = getView().findViewById(R.id.spinner1);
 
+                    fo.write((Integer.toString(spinner.getSelectedItemPosition())
+                            + "\n").getBytes());
 
                     RelativeLayout include1 = getView().findViewById(R.id.include1);
 
@@ -202,6 +206,9 @@ public class Lift extends Fragment {
                         fo.write(text.getText().toString().getBytes());
                         fo.write("-".getBytes());
                     }
+
+                    EditText edit = getView().findViewById(R.id.weight1);
+                    fo.write(edit.getText().toString().getBytes());
 
                     fo.write("\n".getBytes());
 
@@ -213,6 +220,9 @@ public class Lift extends Fragment {
                         fo.write("-".getBytes());
                     }
 
+                    edit = getView().findViewById(R.id.weight2);
+                    fo.write(edit.getText().toString().getBytes());
+
                     fo.write("\n".getBytes());
 
                     RelativeLayout include3 = getView().findViewById(R.id.include3);
@@ -222,6 +232,9 @@ public class Lift extends Fragment {
                         fo.write(text.getText().toString().getBytes());
                         fo.write("-".getBytes());
                     }
+
+                    edit = getView().findViewById(R.id.weight3);
+                    fo.write(edit.getText().toString().getBytes());
 
                     fo.write("\n".getBytes());
 
@@ -233,6 +246,9 @@ public class Lift extends Fragment {
                         fo.write("-".getBytes());
                     }
 
+                    edit = getView().findViewById(R.id.weight4);
+                    fo.write(edit.getText().toString().getBytes());
+
                     fo.write("\n".getBytes());
 
                     RelativeLayout include5 = getView().findViewById(R.id.include5);
@@ -242,6 +258,9 @@ public class Lift extends Fragment {
                         fo.write(text.getText().toString().getBytes());
                         fo.write("-".getBytes());
                     }
+
+                    edit = getView().findViewById(R.id.weight5);
+                    fo.write(edit.getText().toString().getBytes());
 
                     fo.write("\n\n".getBytes());
 
